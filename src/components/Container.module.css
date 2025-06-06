@@ -1,0 +1,12 @@
+.corpo {
+
+  justify-content: space-between;
+  width: 935px;
+  margin: 0 auto;
+  margin-top: 88px;
+}
+
+.esquerda {
+  width: 100%;
+  max-width: 614px;
+}
