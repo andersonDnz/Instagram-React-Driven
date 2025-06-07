@@ -1,9 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react';
 
 import styles from "./Stories.module.css";
-
-import { IonIcon } from '@ionic/react';
-import { chevronForwardCircle } from 'ionicons/icons';
 
 
 import gag from "../../src/assets/img/9gag.svg";
@@ -15,90 +12,40 @@ import respondeai from "../../src/assets/img/respondeai.svg";
 import filomoderna from "../../src/assets/img/filomoderna.svg";
 import memeriagourmet from "../../src/assets/img/memeriagourmet.svg";
 
-
-
-
 const Stories = () => {
+  const storiesRef = useRef(null);
+
+
   return (
-    <div className={styles.stories}>
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={gag} alt="9gag" />
-        </div>
-        <div className={styles.usuario}>
-          9gag
-        </div>
+    <div className={styles.container}>
+      <div className={styles.stories} ref={storiesRef}>
+        {[
+          { src: gag, alt: "9gag", user: "9gag" },
+          { src: meowed, alt: "meowed", user: "meowed" },
+          { src: barked, alt: "barked", user: "barked" },
+          { src: nathanwpylestrangeplanet, alt: "nathanwpylestrangeplanet", user: "nathanwpylestrangeplanet" },
+          { src: wawawicomics, alt: "wawawicomics", user: "wawawicomics" },
+          { src: respondeai, alt: "respondeai", user: "respondeai" },
+          { src: filomoderna, alt: "filomoderna", user: "filomoderna" },
+          { src: memeriagourmet, alt: "memeriagourmet", user: "memeriagourmet" },
+          { src: gag, alt: "9gag", user: "9gag" },
+          { src: barked, alt: "10gag", user: "10gag" },
+          { src: gag, alt: "11gag", user: "11gag" },
+          { src: nathanwpylestrangeplanet, alt: "extra", user: "9gag" },
+          { src: gag, alt: "another", user: "9gag" },
+        ].map((story, index) => (
+          <div className={styles.story} key={index}>
+            <div className={styles.imagem}>
+              <img src={story.src} alt={story.alt} />
+            </div>
+            <div className={styles.usuario}>{story.user}</div>
+          </div>
+        ))}
+
       </div>
 
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={meowed} alt="meowed" />
-        </div>
-        <div className={styles.usuario}>
-          meowed
-        </div>
-      </div>
-
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={barked} alt="barked" />
-        </div>
-        <div className={styles.usuario}>
-          barked
-        </div>
-      </div>
-
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={nathanwpylestrangeplanet} alt="nathanwpylestrangeplanet" />
-        </div>
-        <div className={styles.usuario}>
-          nathanwpylestrangeplanet
-        </div>
-      </div>
-
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={wawawicomics} alt="wawawicomics" />
-        </div>
-        <div className={styles.usuario}>
-          wawawicomics
-        </div>
-      </div>
-
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={respondeai} alt="respondeai" />
-        </div>
-        <div className={styles.usuario}>
-          respondeai
-        </div>
-      </div>
-
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={filomoderna} alt="filomoderna" />
-        </div>
-        <div className={styles.usuario}>
-          filomoderna
-        </div>
-      </div>
-
-      <div className={styles.story}>
-        <div className={styles.imagem}>
-          <img src={memeriagourmet} alt="memeriagourmet" />
-        </div>
-        <div className={styles.usuario}>
-          memeriagourmet
-        </div>
-      </div>
-
-      <div className={styles.setinha}>
-        <IonIcon icon={chevronForwardCircle}></IonIcon>
-      </div>
     </div>
-
-  )
-}
+  );
+};
 
 export default Stories;

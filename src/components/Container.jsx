@@ -14,9 +14,11 @@ const Container = () => {
     <div className={styles.container}>
       <div className={styles.corpo}>
         <Navbar />
-        <div className={styles.esquerda}></div>
-        <Stories />
-        <Posts />
+        <div className={styles.esquerda}>
+
+          <Stories />
+          <Posts />
+        </div>
         <Suggestions />
       </div>
 

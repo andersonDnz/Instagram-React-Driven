@@ -1,3 +1,10 @@
+.container {
+  position: relative;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
 .stories {
   display: flex;
   align-items: center;
@@ -5,11 +12,17 @@
   border-radius: 3px;
   border: 1px solid #DBDBDB;
   padding: 0 18px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
 }
 
+.stories::-webkit-scrollbar {
+  display: none;
+}
+
 .story {
+  flex: 0 0 auto;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -43,15 +56,4 @@
   text-overflow: ellipsis;
   text-align: center;
   height: 14px;
-}
-
-.stories .setinha {
-  position: absolute;
-  right: 10px;
-  top: 45px;
-  height: 32px;
-  width: 32px;
-  color: #FFF;
-  font-size: 28px;
-  cursor: pointer;
 }

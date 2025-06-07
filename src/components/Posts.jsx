@@ -10,126 +10,79 @@ import {
 } from 'ionicons/icons';
 
 import meowed from '../../src/assets/img/meowed.svg';
-import gatoTelefone from '../../src//assets/img/gato-telefone.svg';
+import gatoTelefone from '../../src/assets/img/gato-telefone.svg';
 import respondeai from '../../src/assets/img/respondeai.svg';
 import barked from '../../src/assets/img/barked.svg';
 import dog from '../../src/assets/img/dog.svg';
 import adorableAnimals from '../../src/assets/img/adorable_animals.svg';
 
-const Posts = () => {
+export default function Posts() {
+  const posts = [
+    {
+      usuario: "meowed",
+      avatar: meowed,
+      imagem: gatoTelefone,
+      curtidoPor: "respondeai",
+      avatarCurtida: respondeai,
+      outrasCurtidas: "101.523"
+    },
+    {
+      usuario: "barked",
+      avatar: barked,
+      imagem: dog,
+      curtidoPor: "adorable_animals",
+      avatarCurtida: adorableAnimals,
+      outrasCurtidas: "99.159"
+    },
+    {
+      usuario: "meowed",
+      avatar: meowed,
+      imagem: gatoTelefone,
+      curtidoPor: "respondeai",
+      avatarCurtida: respondeai,
+      outrasCurtidas: "101.523"
+    }
+  ];
+
   return (
     <div className={styles.post}>
-
-      <div className={styles.post}>
-        <div className={styles.topo}>
-          <div className={styles.usuario}>
-            <img src={meowed} alt="meowed" />
-            meowed
-          </div>
-          <div className={styles.acoes}>
-            <IonIcon icon={ellipsisHorizontal} />
-          </div>
-        </div>
-
-        <div className={styles.conteudo}>
-          <img src={gatoTelefone} alt="gato-telefone" />
-        </div>
-
-        <div className={styles.fundo}>
-          <div className={styles.acoes}>
-            <div>
-              <IonIcon icon={heartOutline} />
-              <IonIcon icon={chatbubbleOutline} />
-              <IonIcon icon={paperPlaneOutline} />
+      {posts.map((post) =>
+        <div className={styles.post}>
+          <div className={styles.topo}>
+            <div className={styles.usuario}>
+              <img src={post.avatar} alt={post.usuario} />
+              {post.usuario}
             </div>
-            <div>
-              <IonIcon icon={bookmarkOutline} />
+            <div className={styles.acoes}>
+              <IonIcon icon={ellipsisHorizontal} />
             </div>
           </div>
 
-          <div className={styles.curtidas}>
-            <img src={respondeai} alt="respondeai" />
-            <div className={styles.texto}>
-              Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+          <div className={styles.conteudo}>
+            <img src={post.imagem} alt="conteúdo" />
+          </div>
+
+          <div className={styles.fundo}>
+            <div className={styles.acoes}>
+              <div>
+                <IonIcon icon={heartOutline} />
+                <IonIcon icon={chatbubbleOutline} />
+                <IonIcon icon={paperPlaneOutline} />
+              </div>
+              <div>
+                <IonIcon icon={bookmarkOutline} />
+              </div>
+            </div>
+
+            <div className={styles.curtidas}>
+              <img src={post.avatarCurtida} alt={post.curtidoPor} />
+              <div className={styles.texto}>
+                Curtido por <strong>{post.curtidoPor}</strong> e <strong>outras {post.outrasCurtidas} pessoas</strong>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-
-      <div className={styles.post}>
-        <div className={styles.topo}>
-          <div className={styles.usuario}>
-            <img src={barked} alt="barked" />
-            barked
-          </div>
-          <div className={styles.acoes}>
-            <IonIcon icon={ellipsisHorizontal} />
-          </div>
-        </div>
-
-        <div className={styles.conteudo}>
-          <img src={dog} alt="dog" />
-        </div>
-
-        <div className={styles.fundo}>
-          <div className={styles.acoes}>
-            <div>
-              <IonIcon icon={heartOutline} />
-              <IonIcon icon={chatbubbleOutline} />
-              <IonIcon icon={paperPlaneOutline} />
-            </div>
-            <div>
-              <IonIcon icon={bookmarkOutline} />
-            </div>
-          </div>
-
-          <div className={styles.curtidas}>
-            <img src={adorableAnimals} alt="adorable_animals" />
-            <div className={styles.texto}>
-              Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.post}>
-        <div className={styles.topo}>
-          <div className={styles.usuario}>
-            <img src={meowed} alt="meowed" />
-            meowed
-          </div>
-          <div className={styles.acoes}>
-            <IonIcon icon={ellipsisHorizontal} />
-          </div>
-        </div>
-
-        <div className={styles.conteudo}>
-          <img src={gatoTelefone} alt="gato-telefone" />
-        </div>
-
-        <div className={styles.fundo}>
-          <div className={styles.acoes}>
-            <div>
-              <IonIcon icon={heartOutline} />
-              <IonIcon icon={chatbubbleOutline} />
-              <IonIcon icon={paperPlaneOutline} />
-            </div>
-            <div>
-              <IonIcon icon={bookmarkOutline} />
-            </div>
-          </div>
-
-          <div className={styles.curtidas}>
-            <img src={respondeai} alt="respondeai" />
-            <div className={styles.texto}>
-              Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      )}
     </div>
   );
-};
-
-export default Posts;
+}

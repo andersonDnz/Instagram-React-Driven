@@ -1,5 +1,5 @@
 .corpo {
-
+  display: flex;
   justify-content: space-between;
   width: 935px;
   margin: 0 auto;

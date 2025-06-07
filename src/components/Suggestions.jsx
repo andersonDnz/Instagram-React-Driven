@@ -1,20 +1,42 @@
-import React from 'react'
+import React from 'react';
+import styles from "./Suggestions.module.css";
+import { IonIcon } from '@ionic/react';
+import { pencil } from 'ionicons/icons';
 
+import catanacomics from "../assets/img/catanacomics.svg";
+import badVibes from "../assets/img/bad.vibes.memes.svg";
+import chibirdart from "../assets/img/chibirdart.svg";
+import razoesparaacreditar from "../assets/img/razoesparaacreditar.svg";
+import adorable_animals from "../assets/img/adorable_animals.svg";
+import smallcutecats from "../assets/img/smallcutecats.svg";
 
-
-import styles from "./Suggestions.module.css"
-
-import { IonIcon } from '@ionic/react'
-import { pencil } from 'ionicons/icons'
-
-import catanacomics from "../assets/img/catanacomics.svg"
-import badVibes from "../assets/img/bad.vibes.memes.svg"
-import chibirdart from "../assets/img/chibirdart.svg"
-import razoesparaacreditar from "../assets/img/razoesparaacreditar.svg"
-import adorable_animals from "../assets/img/adorable_animals.svg"
-import smallcutecats from "../assets/img/smallcutecats.svg"
-
-
+const sugestoes = [
+  {
+    img: badVibes,
+    nome: "bad.vibes.memes",
+    razao: "Segue você",
+  },
+  {
+    img: chibirdart,
+    nome: "chibirdart",
+    razao: "Segue você",
+  },
+  {
+    img: razoesparaacreditar,
+    nome: "razoesparaacreditar",
+    razao: "Novo no Instagram",
+  },
+  {
+    img: adorable_animals,
+    nome: "adorable_animals",
+    razao: "Segue você",
+  },
+  {
+    img: smallcutecats,
+    nome: "smallcutecats",
+    razao: "Segue você",
+  },
+];
 
 const Suggestions = () => {
   return (
@@ -24,8 +46,7 @@ const Suggestions = () => {
         <div className={styles.texto}>
           <span>
             <strong>catanacomics</strong>
-
-            <IonIcon icon={pencil} ></IonIcon>
+            <IonIcon icon={pencil} />
           </span>
         </div>
       </div>
@@ -36,65 +57,18 @@ const Suggestions = () => {
           <div>Ver tudo</div>
         </div>
 
-        <div className={styles.sugestao}>
-          <div className={styles.usuario}>
-            <img src={badVibes} alt="bad.vibes.memes.svg" />
-            <div className={styles.texto}>
-              <div className={styles.nome}>bad.vibes.memes</div>
-              <div className={styles.razao}>Segue você</div>
+        {sugestoes.map((s, index) => (
+          <div key={index} className={styles.sugestao}>
+            <div className={styles.usuario}>
+              <img src={s.img} alt={s.nome} />
+              <div className={styles.texto}>
+                <div className={styles.nome}>{s.nome}</div>
+                <div className={styles.razao}>{s.razao}</div>
+              </div>
             </div>
+            <div className={styles.seguir}>Seguir</div>
           </div>
-
-          <div className={styles.seguir}>Seguir</div>
-        </div>
-
-        <div className={styles.sugestao}>
-          <div className={styles.usuario}>
-            <img src={chibirdart} alt="chibirdart" />
-            <div className={styles.texto}>
-              <div className={styles.nome}>chibirdart</div>
-              <div className={styles.razao}>Segue você</div>
-            </div>
-          </div>
-
-          <div className={styles.seguir}>Seguir</div>
-        </div>
-
-        <div className={styles.sugestao}>
-          <div className={styles.usuario}>
-            <img src={razoesparaacreditar} alt="razoesparaacreditar" />
-            <div className={styles.texto}>
-              <div className={styles.nome}>razoesparaacreditar</div>
-              <div className={styles.razao}>Novo no Instagram</div>
-            </div>
-          </div>
-
-          <div className={styles.seguir}>Seguir</div>
-        </div>
-
-        <div className={styles.sugestao}>
-          <div className={styles.usuario}>
-            <img src={adorable_animals} alt="adorable_animals" />
-            <div className={styles.texto}>
-              <div className={styles.nome}>adorable_animals</div>
-              <div className={styles.razao}>Segue você</div>
-            </div>
-          </div>
-
-          <div className={styles.seguir}>Seguir</div>
-        </div>
-
-        <div className={styles.sugestao}>
-          <div className={styles.usuario}>
-            <img src={smallcutecats} alt="smallcutecats" />
-            <div className={styles.texto}>
-              <div className={styles.nome}>smallcutecats</div>
-              <div className={styles.razao}>Segue você</div>
-            </div>
-          </div>
-
-          <div className={styles.seguir}>Seguir</div>
-        </div>
+        ))}
       </div>
 
       <div className={styles.links}>
@@ -106,10 +80,7 @@ const Suggestions = () => {
         © 2021 INSTAGRAM DO FACEBOOK
       </div>
     </div>
+  );
+};
 
-
-
-  )
-}
-
-export default Suggestions
+export default Suggestions;
