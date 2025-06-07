@@ -18,15 +18,16 @@
 
 .sidebar>.usuario .texto {
   display: flex;
-  flex-direction: column;
   margin-left: 14px;
   margin-bottom: 5px;
   font-weight: 300;
+  gap: 4px;
 }
 
 .sidebar>.usuario .texto strong {
   font-weight: 700;
   color: #262626;
+
 }
 
 .sidebar .sugestoes .titulo {
@@ -88,10 +89,4 @@
 
 ion-icon {
   visibility: visible;
-}
-
-.usuario ion-icon {
-  margin-left: 5px;
-  padding-top: 5px;
-  color: black;
 }
