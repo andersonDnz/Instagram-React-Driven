@@ -44,7 +44,7 @@ export default function Post({ post }) {
         </div>
       </div>
 
-      <div className={styles.conteudo} onClick={() => toggleLike(false)}>
+      <div className={styles.conteudo} onClick={() => toggleLike(true)}>
         <img src={post.contentImg} alt="conteudo" />
       </div>
 
@@ -54,7 +54,7 @@ export default function Post({ post }) {
             <IonIcon
               icon={liked ? heart : heartOutline}
               color={liked ? 'danger' : ''}
-              onClick={() => toggleLike(!liked)}
+              onClick={() => toggleLike(!likes)}
             />
             <IonIcon icon={chatbubbleOutline} />
             <IonIcon icon={paperPlaneOutline} />
